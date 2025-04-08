@@ -1,13 +1,28 @@
+<?php
+session_start();
+
+// Redirect to login if the user is not authenticated
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
+    header("Location: login.php");
+    exit();
+}
+
+// Retrieve admin details from session
+$adminFirstName = $_SESSION['first_name'];
+$adminLastName = $_SESSION['last_name'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJBPS Sub-Admin Dashboard</title>
+    <title>Admin - SJBPS Dashboard</title>
+    <link rel="icon" type="image/png" href="assets/main/logo/st-johns-logo.png">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <style>
         :root {
             --primary-blue: #3498db;
@@ -92,6 +107,8 @@
         .metric-card.orange { background-color: #f39c12; }
         .metric-card.green { background-color: #2ecc71; }
         .metric-card.blue { background-color: #3498db; }
+        .metric-card.navy { background-color: #34495e; }
+        .metric-card.yellow { background-color: #f1c40f; }
         
         .metric-value {
             font-size: 24px;
@@ -110,6 +127,7 @@
             }
         }
     </style>
+    
     <!-- Fetch the name of the User -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -152,12 +170,15 @@
                         <a class="nav-link" href="admin-dashboard.php"><i class="fas fa-home me-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php"><i class="fas fa-sign-out-alt me-2"></i>Log Out</a>
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt me-2"></i>Log Out
+                    </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <!-- Logout Confirmation Modal -->
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -176,6 +197,8 @@
             </div>
         </div>
     </div>
+    
+
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
@@ -187,18 +210,54 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sub-admin-application.php">
+                        <a class="nav-link" href="sub-admin-application-review.php">
                             <i class="fas fa-file-alt me-2"></i>Applications for Review
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <i class="fas fa-money-check-alt me-2"></i>Payment Transactions
+                        <a class="nav-link" href="admin-approved-application.php">
+                            <i class="fas fa-check-circle me-2"></i>Approved Applications
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <i class="fas fa-check-circle me-2"></i>Approved Applications
+                        <a class="nav-link" href="admin-declined-application.php">
+                            <i class="fas fa-times-circle me-2"></i>Declined Applications
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-interviews.php">
+                            <i class="fas fa-calendar-check me-2"></i>Interviews
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-declined-interviews.php">
+                            <i class="fas fa-times-circle me-2"></i>Declined Interviews
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-student-for-assignment.php">
+                            <i class="fas fa-tasks me-2"></i>For Assignment
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-all-enrollees.php">
+                            <i class="fas fa-users me-2"></i>All Enrollees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-grade-section.php">
+                            <i class="fas fa-chalkboard-teacher me-2"></i>Grade-Section
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-curriculum.php">
+                            <i class="fas fa-book-open me-2"></i>Curriculum
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-school-years.php">
+                        <i class="fas fa-graduation-cap me-2"></i>School Years
                         </a>
                     </li>
                 </ul>
@@ -220,16 +279,6 @@
                     
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card-container">
-                            <div class="card-title">Payment Transactions</div>
-                            <div class="metric-card orange">
-                                <div class="metric-value">77</div>
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-3 mb-4">
-                        <div class="card-container">
                             <div class="card-title">Total Revenue</div>
                             <div class="metric-card green">
                                 <div class="metric-value">₱ 77,777</div>
@@ -237,13 +286,26 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card-container">
+                            <div class="card-title">Total Enrollees</div>
+                            <div class="metric-card navy">
+                                <div class="metric-value">77</div>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+
 
                     <!-- Chart Section -->
                     <div class="col-12">
                         <div class="chart-container">
                             <h5 class="mb-3">Number of Students per Grade Level</h5>
-                            <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #999; border: 1px dashed #ddd; border-radius: 8px;">
-                                <p>Chart area - Grade level distribution would appear here</p>
+                            <div style="height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <canvas id="gradeLevelChart" style="width: 100%; height: 100%;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -252,8 +314,9 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -321,5 +384,6 @@
         });
     });
 </script>
+
 </body>
 </html>
