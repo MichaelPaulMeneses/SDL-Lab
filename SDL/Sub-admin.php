@@ -1,23 +1,9 @@
-<?php
-session_start();
-
-// Redirect to login if the user is not authenticated
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'admin') {
-    header("Location: login.php");
-    exit();
-}
-
-// Retrieve admin details from session
-$adminFirstName = $_SESSION['first_name'];
-$adminLastName = $_SESSION['last_name'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - SJBPS Dashboard</title>
+    <title>Sub-Admin - SJBPS Dashboard</title>
     <link rel="icon" type="image/png" href="assets/main/logo/st-johns-logo.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -162,7 +148,7 @@ $adminLastName = $_SESSION['last_name'];
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <img id="navLogo" src="assets/homepage_images/logo/placeholder.png" alt="Profile" class="logo-image me-2">
-                <a class="navbar-brand" href="admin-dashboard.php" id="adminWelcomeMessage">WELCOME! Admin</a>
+                <a class="navbar-brand" href="admin-dashboard.php" id="adminWelcomeMessage">WELCOME! Sub-Admin</a>
             </div>
             <div class="ms-auto">
                 <ul class="navbar-nav">
