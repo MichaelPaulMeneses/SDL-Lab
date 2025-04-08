@@ -196,7 +196,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sub-admin-application-review.php">
+                        <a class="nav-link" href="Sub-admin-application-review.php">
                             <i class="fas fa-file-alt me-2"></i>Applications for Review
                         </a>
                     </li>
