@@ -188,48 +188,48 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-approved-application.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-check-circle me-2"></i>Approved Applications
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-declined-application.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-times-circle me-2"></i>Declined Applications
                         </a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-interviews.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-calendar-check me-2"></i>Interviews
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-declined-interviews.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-times-circle me-2"></i>Declined Interviews
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-student-for-assignment.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-tasks me-2"></i>For Assignment
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-all-enrollees.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-users me-2"></i>All Enrollees
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-grade-section.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-chalkboard-teacher me-2"></i>Grade-Section
                         </a>
                     </li>
                     <li class="nav-item">       
-                        <a class="nav-link" href="admin-curriculum.php">
+                        <a class="nav-link" href="#">
                             <i class="fas fa-book-open me-2"></i>Curriculum
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-school-years.php">
+                        <a class="nav-link" href="#">
                         <i class="fas fa-graduation-cap me-2"></i>School Years
                         </a>
                     </li>
