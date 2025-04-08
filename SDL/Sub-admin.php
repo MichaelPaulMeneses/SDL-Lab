@@ -201,23 +201,23 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="Sub-admin-approved-applications.php">
                             <i class="fas fa-check-circle me-2"></i>Approved Applications
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="Sub-admin-declined-applications.php">
                             <i class="fas fa-times-circle me-2"></i>Declined Applications
                         </a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#p">
+                        <a class="nav-link" href="Sub-admin-interviews.php">
                             <i class="fas fa-calendar-check me-2"></i>Interviews
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="Sub-admin-declined-interviews.php">
                             <i class="fas fa-times-circle me-2"></i>Declined Interviews
                         </a>
                     </li>
