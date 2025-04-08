@@ -178,7 +178,7 @@
             <div class="col-md-3 col-lg-2 d-md-block sidebar pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="=Sub-admin.php">
+                        <a class="nav-link" href="Sub-admin.php">
                             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                         </a>
                     </li>
