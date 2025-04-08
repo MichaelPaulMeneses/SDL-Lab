@@ -148,12 +148,12 @@
         <div class="container-fluid">
             <div class="d-flex align-items-center">
                 <img id="navLogo" src="assets/homepage_images/logo/placeholder.png" alt="Profile" class="logo-image me-2">
-                <a class="navbar-brand" href="admin-dashboard.php" id="adminWelcomeMessage">WELCOME! Sub-Admin</a>
+                <a class="navbar-brand" href="Sub-admin.php" id="adminWelcomeMessage">WELCOME! Sub-Admin</a>
             </div>
             <div class="ms-auto">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="admin-dashboard.php"><i class="fas fa-home me-2"></i>Dashboard</a>
+                        <a class="nav-link" href="Sub-admin.php"><i class="fas fa-home me-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
@@ -201,16 +201,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sub-admin-approved-applications.php">
+                        <a class="nav-link" href="Sub-admin-approved-application.php">
                             <i class="fas fa-check-circle me-2"></i>Approved Applications
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sub-admin-declined-applications.php">
+                        <a class="nav-link" href="Sub-admin-declined-application.php">
                             <i class="fas fa-times-circle me-2"></i>Declined Applications
                         </a>
                     </li>
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="Sub-admin-interviews.php">
                             <i class="fas fa-calendar-check me-2"></i>Interviews
