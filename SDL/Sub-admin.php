@@ -158,7 +158,24 @@
             </div>
         </div>
     </nav>
-
+    <!-- Logout Confirmation Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to log out?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="logout.php" class="btn btn-danger">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
@@ -170,7 +187,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="Sub-admin-application.php">
                             <i class="fas fa-file-alt me-2"></i>Applications for Review
                         </a>
                     </li>
@@ -237,5 +254,72 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Example: Render a bar chart for "Number of Students per Grade Level"
+        const ctx = document.createElement('canvas');
+        ctx.style.width = '100%';
+        ctx.style.height = '100%';
+        const chartContainer = document.querySelector('.chart-container div');
+        chartContainer.innerHTML = ''; // Clear placeholder text
+        chartContainer.appendChild(ctx);
+
+        const data = {
+            labels: [
+            'Pre-Kindergarten', 'Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3', 
+            'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 
+            'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'
+            ],
+            datasets: [{
+            label: 'Number of Students',
+            data: [30, 40, 50, 45, 60, 55, 70, 65, 80, 75, 85, 90, 95, 100],
+            backgroundColor: [
+                'rgba(52, 152, 219, 0.7)', 'rgba(46, 204, 113, 0.7)', 
+                'rgba(241, 196, 15, 0.7)', 'rgba(231, 76, 60, 0.7)', 
+                'rgba(155, 89, 182, 0.7)', 'rgba(52, 73, 94, 0.7)', 
+                'rgba(26, 188, 156, 0.7)', 'rgba(22, 160, 133, 0.7)', 
+                'rgba(39, 174, 96, 0.7)', 'rgba(41, 128, 185, 0.7)', 
+                'rgba(142, 68, 173, 0.7)', 'rgba(44, 62, 80, 0.7)', 
+                'rgba(243, 156, 18, 0.7)', 'rgba(192, 57, 43, 0.7)'
+            ],
+            borderColor: [
+                'rgba(52, 152, 219, 1)', 'rgba(46, 204, 113, 1)', 
+                'rgba(241, 196, 15, 1)', 'rgba(231, 76, 60, 1)', 
+                'rgba(155, 89, 182, 1)', 'rgba(52, 73, 94, 1)', 
+                'rgba(26, 188, 156, 1)', 'rgba(22, 160, 133, 1)', 
+                'rgba(39, 174, 96, 1)', 'rgba(41, 128, 185, 1)', 
+                'rgba(142, 68, 173, 1)', 'rgba(44, 62, 80, 1)', 
+                'rgba(243, 156, 18, 1)', 'rgba(192, 57, 43, 1)'
+            ],
+            borderWidth: 1
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Grade Level Distribution'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    });
+</script>
 </body>
 </html>
