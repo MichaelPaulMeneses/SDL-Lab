@@ -439,7 +439,7 @@
                                 <td>${student.school_year}</td>
                                 <td>${student.enrollment_status}</td>
                                 <td>
-                                    <form action="admin-review-form.php" method="POST" style="display:inline;">
+                                    <form action="Sub-admin-review-form.php" method="POST" style="display:inline;">
                                         <input type="hidden" name="student_id" value="${student.student_id}">
                                         <button type="submit" class="btn btn-primary btn-sm">Review</button>
                                     </form>
